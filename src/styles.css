@@ -102,9 +102,9 @@ textarea:not([rows]) {
 
 
 h2 {
- color: rgb(82, 80, 80);
- line-height: 2.5rem;
- display: inline-flex;
+  display: inline;
+  color: rgb(82, 80, 80);
+  line-height: 2.5rem;
 }
 
 h4 {
@@ -118,7 +118,7 @@ h4 {
 }
 
 /* box shadows */
-.hero-image, .about-me-container, .project-card {
+.hero-image, .project-card, .about-me-content {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -135,7 +135,6 @@ h4 {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding: 0px 150px;
   position: relative;
 }
 
@@ -148,40 +147,33 @@ h4 {
 }
 
 .about-me-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
-  padding: 30px;
-  width: clamp(478px, 100%, 800px);
-  min-height: 450px;
-  background-color: white;
-  position: relative;
 }
 
-.hero-links-container {
+.about-me-content {
+  background-color: white;
+  max-width: 800px;
+  padding: 50px;
+
+}
+
+.about-me-link {
+  padding: 30px;
+  justify-content: end;
   display: flex;
   gap: 30px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 30px;
 }
 
-picture {
-  z-index: 2;
-  position: relative;
-}
 
-.hero-image {
-  height: 100%;
-}
-
-picture > h1 {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%)
+.about-me-image {
+  max-width: 100%;
+  height: auto;
+  min-width: 0;
 
 }
-
 
 
 button > img {
@@ -325,32 +317,46 @@ footer {
 
 
 @media (max-width: 1440px) {
-  .hero-container {
-    all: unset; 
+  .hero-container { 
     padding: 0;
-    display: grid;
-    grid-template-areas: "stack";
-  }
-
-  .hero-container  > *{
-    grid-area: stack;
-  }
-
-  .picture {
-    z-index: 2;
-
   }
 
   .about-me-container {
+    display: flow-root;
+    align-items: normal;
+  }
+
+  .about-me-content {
+    display: block;
+    margin-top: 150px;
+    margin-left: 250px;
+    position: relative;
     z-index: 1;
   }
 
-  
-  
+  .about-me-image {
+    float: left;
+    width: 480px;
+    margin: 0 30px 20px 0;
+    position: relative;
+    z-index: 2;
+  }
+}
 
+@media (max-width: 760px) {
+  .about-me-container {
+    justify-content: center;
 
+  }
 
+  .about-me-content {
+    margin: 0;
+  }
 
+  .about-me-image {
+    float: none;
+    margin: 0;
+  }
 }
 
 
